@@ -1,4 +1,5 @@
 $bg-color: #2e2b2b;
+$bg-color-2: #363431;
 $fg-color: #f1f0de;
 $primary: #27ae60;
 $accent: #00727f;
@@ -35,17 +36,30 @@ body menu {
 }
 body footer {
 }
-button {
-  border-radius: 25vmax;
+
+
+table {
+  border-collapse: collapse;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  thead tr {
+    background-color: $primary;
+    color: $fg-color;
+    text-align: left;
+  }
+  th, td {
+    padding: 12px 15px;
+  }
+  tbody {
+    tr { border-bottom: 1px solid $fg-color; }
+    tr:nth-of-type(even) { background-color:$bg-color-2; }
+    tr:last-of-type { border-bottom: 2px solid $primary;}
+  }
 }
-// button {
-//     border: 2px solid purple;
-//     background-color: white;
-//     color: black;
-//     padding: 14px 28px;
-//     font-size: 16px;
-//     cursor: pointer;
-// }
 
 
 /* CSS */

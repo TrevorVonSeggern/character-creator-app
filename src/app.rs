@@ -6,8 +6,10 @@ use log::info;
 use yewdux::prelude::*;
 
 
+use crate::state::Action;
 use crate::state::AppState;
 use crate::entities::Thing;
+use crate::state::CreateManyThings;
 
 fn log_message(message: &str) {
     let object = JsValue::from(message);
@@ -98,11 +100,49 @@ pub fn app() -> Html {
     html! { <Main/> }
 }
 
+//#[function_component(App)]
+//fn thingHtml(data: Vec<Thing>) -> Html {
+    //let columns = columns![
+        //("id", "Id.")
+        //("name", "Name.")
+        //("description", "Description")
+    //];
+    //let options = TableOptions {
+        //orderable: true,
+    //};
+    //html! {
+        //<>
+            //<Table columns=columns, data=data, options=Some(options) />
+        //</>
+    //}
+//}
 
 #[function_component]
 fn ThingPage() -> Html {
+    let (app_state, dispatch) = use_store::<AppState>();
+
+    let add_ten_cb = dispatch.apply_callback(|_| Action::AddThings(CreateManyThings(10)));
     html! {
-        "thing page"
+        <section>
+            <h1>{"thing page"}</h1>
+            //<h2>{toAdd.len()}</h2>
+            <button onclick={add_ten_cb} class="primary">{"+1"}</button>
+            <h2>{app_state.things.len()}</h2>
+            <table>
+                <thead><tr><th scope="col">{"Id"}</th><th scope="col">{"Name"}</th></tr></thead>
+                <tbody>
+                    {app_state.things.iter().map(|thing| html!{
+                    <tr>
+                        <td>{thing.id}</td>
+                        <td>{thing.name.to_string()}</td>
+                    </tr>
+                    }).collect::<Html>()}
+                </tbody>
+            </table>
+            <ul class="crud">
+            //{thingHtml(app_state.things)}
+            </ul>
+        </section>
     }
 }
 
