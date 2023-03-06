@@ -1,0 +1,103 @@
+$bg-color: #2e2b2b;
+$fg-color: #f1f0de;
+$primary: #27ae60;
+$accent: #00727f;
+$warn: #e27f04;
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: $bg-color;
+  color: $fg-color;
+}
+
+body nav {
+  min-height: 100px;
+  background-color: $primary;
+  color: $bg-color;
+  font-size: 1.8em;
+  font-family: sans-serif;
+  li {
+    margin: 7px .5em;
+  }
+  a {
+    &.active {
+      border-bottom: 4px solid;
+    }
+    padding: 5px 16px;
+  } 
+}
+body main {
+}
+body menu {
+}
+body footer {
+}
+button {
+  border-radius: 25vmax;
+}
+// button {
+//     border: 2px solid purple;
+//     background-color: white;
+//     color: black;
+//     padding: 14px 28px;
+//     font-size: 16px;
+//     cursor: pointer;
+// }
+
+
+/* CSS */
+button {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: $primary;
+  &.accent {
+    background-color: $accent;
+  }
+  &.warn {
+    background-color: $warn;
+  }
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: $fg-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+button:hover {
+  -webkit-filter: brightness(70%);
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+button:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+button:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
